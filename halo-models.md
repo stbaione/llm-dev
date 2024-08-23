@@ -18,16 +18,16 @@ Models           |     FP16        |   FP8           |     Q4_K
 :--------------: | :-------------: |:----------------:|:----------------:
 llama3-8b | [mlir](https://github.com/nod-ai/llm-dev/blob/main/models/llama.8b/llama.8b.fp16.mlir) [gguf](https://sharkpublic.blob.core.windows.net/sharkpublic/llama_gguf/llama.8b.fp16.gguf) | |
 llama3-70b | | |
-llama3-405b | | |
-grok-1 | | |
+llama3-405b |N/A | N/A|N/A
+grok-1 |N/A |N/A |
 
 ## TP2
 Models           |     FP16        |   FP8           |     Q4_K 
 :--------------: | :-------------: |:----------------:|:----------------:
 llama3-8b | | |
 llama3-70b | | |
-llama3-405b | | |
-grok-1 | | |
+llama3-405b |N/A |N/A |
+grok-1 |N/A | |
 
 
 ## TP4
@@ -35,7 +35,7 @@ Models           |     FP16        |   FP8           |     Q4_K
 :--------------: | :-------------: |:----------------:|:----------------:
 llama3-8b | | |
 llama3-70b | | |
-llama3-405b | | |
+llama3-405b |N/A | |
 grok-1 | | |
 
 ## TP8
