@@ -51,8 +51,8 @@ grok-1 | | |
 iree-compile --iree-hal-target-backends=rocm <mlir file>
 ```
 
-## Uploading to Sharkblob on Azure:
-In browser, click on [sharkblob](https://portal.azure.com/#@amdcloud.onmicrosoft.com/resource/subscriptions/8c190d1b-eb91-48d5-bec5-3e7cb7412e6c/resourceGroups/pdue-nod-ai-rg/providers/Microsoft.Storage/storageAccounts/sharkblobs/storagebrowser) , then click on "Blob-containers" and the click on "halo-models"
+## Uploading to Sharkblobs on Azure:
+In browser, click on [sharkblobs](https://portal.azure.com/#@amdcloud.onmicrosoft.com/resource/subscriptions/8c190d1b-eb91-48d5-bec5-3e7cb7412e6c/resourceGroups/pdue-nod-ai-rg/providers/Microsoft.Storage/storageAccounts/sharkblobs/storagebrowser) , then click on "Blob-containers" and the click on "halo-models"
 
 Or, use command line by first installing az cli as:
 ```
