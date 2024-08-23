@@ -56,7 +56,7 @@ In browser, click on [sharkblob](https://portal.azure.com/#@amdcloud.onmicrosoft
 
 Or, use command line by first installing az cli as:
 ```
-install azure with curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 And then, get the account key for the storage account by clicking on "Storage Accounts" in Azure Services or searching "sharkblobs" in the top search bar. Then, click on sharkblobs. Then, on the left side bar, under Security + networking, click on "Access keys". Copy the account key from here and use in the following command
 To upload:
