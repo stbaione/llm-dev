@@ -46,16 +46,22 @@ llama3-70b | | |
 llama3-405b | | |
 grok-1 | | |
 
+## Compilation
+```
+iree-compile --iree-hal-target-backends=rocm <mlir file>
+```
 
 ## Uploading to Sharkblob on Azure:
-In browser, click on https://portal.azure.com/#@amdcloud.onmicrosoft.com/resource/subscriptions/8c190d1b-eb91-48d5-bec5-3e7cb7412e6c/resourceGroups/pdue-nod-ai-rg/providers/Microsoft.Storage/storageAccounts/sharkblobs/storagebrowser , click on "Blob-containers" and the click on "halo-models"
+In browser, click on [sharkblob](https://portal.azure.com/#@amdcloud.onmicrosoft.com/resource/subscriptions/8c190d1b-eb91-48d5-bec5-3e7cb7412e6c/resourceGroups/pdue-nod-ai-rg/providers/Microsoft.Storage/storageAccounts/sharkblobs/storagebrowser) , then click on "Blob-containers" and the click on "halo-models"
 
 Or, use command line using instructions below:
 You can get the account key for the storage account by clicking on "Storage Accounts" in Azure Services or searching "sharkblobs" in the top search bar. Then, click on sharkblobs. Then, on the left side bar, under Security + networking, click on "Access keys". Copy the account key from here and use in the following command
-
+```
 install azure with curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-
+```
+```
 az storage blob upload/download     --account-name sharkblobs     --container-name halo-models     --name <path_you_want_to_upload_in_azure, example: llama3_8b/tp1/llama.mlir>     --file <local_path_on_computer>     --account-key <key_retrieved_from_directions_above>
+```
 
 # AMD GPU Machines
 [MI250-300](https://github.com/nod-ai/playbook/blob/main/HOWTO/access-mi250-mi300.md)
