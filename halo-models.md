@@ -14,12 +14,12 @@ TPn: Tensor Parallel using n GPUs
 3) Very large files, store on GPU server and note the name/location of/on the machine in table(s) below 
 
 ## TP1
-Models           |     FP16        |   FP8           |     Q4_K 
-:--------------: | :-------------: |:----------------:|:----------------:
-llama3-8b | [mlir](https://github.com/nod-ai/llm-dev/blob/main/models/llama.8b/llama.8b.fp16.mlir) [gguf](https://sharkpublic.blob.core.windows.net/sharkpublic/llama_gguf/llama.8b.fp16.gguf) | |
-llama3-70b | | |
-llama3-405b |NA | NA|NA
-grok-1 |NA |NA |
+Models           |     FP16        |   FP8           |     Q4_K         |    Q1_K
+:--------------: | :-------------: |:----------------:|:---------------:|:-------------:
+llama3-8b | [mlir](https://github.com/nod-ai/llm-dev/raw/main/models/llama.8b/llama.8b.fp16.mlir) [gguf](https://sharkpublic.blob.core.windows.net/sharkpublic/llama_gguf/llama.8b.fp16.gguf) | | [mlir](https://github.com/nod-ai/llm-dev/raw/main/models/llama.8b/llama.8b.q4_1.mlir) [gguf](https://sharkpublic.blob.core.windows.net/sharkpublic/llama_gguf/llama.8b.q4_1.gguf) | [mlir](https://github.com/nod-ai/llm-dev/raw/main/models/llama.8b/llama.8b.q4_k.mlir) [gguf](https://sharkpublic.blob.core.windows.net/sharkpublic/llama_gguf/llama.8b.q4_k.gguf)
+llama3-70b | | | |
+llama3-405b |NA | NA|NA |
+grok-1 |NA |NA | |
 
 ## TP2
 Models           |     FP16        |   FP8           |     Q4_K 
