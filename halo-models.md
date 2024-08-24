@@ -46,7 +46,8 @@ llama3-70b | | |
 llama3-405b | | |
 grok-1 | | |
 
-## Compilation
+## MLIR generation and Compilation
+[Quantization](https://github.com/nod-ai/llm-dev/blob/main/Quantization.md)
 ```
 iree-compile --iree-hal-target-backends=rocm <mlir file>
 ```
@@ -76,7 +77,9 @@ iree-compile on mlir of parts of model, and file issues | Archana |
 Numerical issues for any component, tarci profile | Avi |
 Numerical correctness of 70b FP8 (gets from AMD quark team) vs a gold provided by quork | Dan |
 Upload gguf and mlir files | Rob | 
-Fix crash for the issue Rob filed | Mahesh | 
+Fix crash for the issue Rob raised for llama3-8b | Mahesh | 
+Causal (Masked) Attention Support for torch to linalg | Zach |
+Causal (Masked) Attention Support for gpu codegen | Rohan |
 
 
 
