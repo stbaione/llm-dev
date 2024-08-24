@@ -10,7 +10,7 @@ TPn: Tensor Parallel using n GPUs
 
 ## Guideline:
 1) small files and MLIR files check into [llm-dev](https://github.com/nod-ai/llm-dev)
-2) large files upload to "sharkblob" -> "halo-models" container on Azure and put link to that in the table(s) below
+2) large files upload to [sharkblobs](https://portal.azure.com/#@amdcloud.onmicrosoft.com/resource/subscriptions/8c190d1b-eb91-48d5-bec5-3e7cb7412e6c/resourceGroups/pdue-nod-ai-rg/providers/Microsoft.Storage/storageAccounts/sharkblobs/storagebrowser) -> "halo-models" container on Azure and put link to that in the table(s) below
 3) Very large files, store on GPU server and note the name/location of/on the machine in table(s) below 
 
 ## TP1
@@ -68,6 +68,17 @@ To download:
 ```
 az storage blob download --account-name sharkblobs --container-name halo-models --name <azure path, example: llama3_8b/tp1/llama.mlir> --file <local_path_on_computer> --account-key <key_retrieved_from_directions_above>
 ```
+# Assignments
+task      | owner      | status
+:-------: | :--------: |:-------:
+Export very large gguf and mlir files for large models | Kyle | 
+iree-compile on mlir of parts of model, and file issues | Archana | 
+Numerical issues for any component, tarci profile | Avi |
+Numerical correctness of 70b FP8 (gets from AMD quark team) vs a gold provided by quork | Dan |
+Upload gguf and mlir files | Rob | 
+Fix crash for the issue Rob filed | Mahesh | 
+
+
 
 # AMD GPU Machines
 [MI250-300](https://github.com/nod-ai/playbook/blob/main/HOWTO/access-mi250-mi300.md)
