@@ -13,6 +13,8 @@ TPn: Tensor Parallel using n GPUs
 2) large files upload to [sharkblobs](https://portal.azure.com/#@amdcloud.onmicrosoft.com/resource/subscriptions/8c190d1b-eb91-48d5-bec5-3e7cb7412e6c/resourceGroups/pdue-nod-ai-rg/providers/Microsoft.Storage/storageAccounts/sharkblobs/storagebrowser) -> "halo-models" container on Azure and put link to that in the table(s) below
 3) Very large files, store on GPU server and note the name/location of/on the machine in table(s) below 
 
+Note: If a link to Azure sharkblob below gives you an error, either use az cli to download (see section Accessing sharkblobs on Azure) or click on [sharkblobs](https://portal.azure.com/#@amdcloud.onmicrosoft.com/resource/subscriptions/8c190d1b-eb91-48d5-bec5-3e7cb7412e6c/resourceGroups/pdue-nod-ai-rg/providers/Microsoft.Storage/storageAccounts/sharkblobs/storagebrowser) , then click on "Blob-containers" and then navigate to the file manually and download it. 
+
 ## TP1
 Models           |     FP16        |   FP8           |     Q4_K         |    Q4_1
 :--------------: | :-------------: |:----------------:|:---------------:|:-------------:
@@ -53,7 +55,7 @@ grok-1 | | |
 iree-compile --iree-hal-target-backends=rocm <mlir file>
 ```
 
-## Uploading to Sharkblobs on Azure:
+## Accessing sharkblobs on Azure:
 In browser, click on [sharkblobs](https://portal.azure.com/#@amdcloud.onmicrosoft.com/resource/subscriptions/8c190d1b-eb91-48d5-bec5-3e7cb7412e6c/resourceGroups/pdue-nod-ai-rg/providers/Microsoft.Storage/storageAccounts/sharkblobs/storagebrowser) , then click on "Blob-containers" and the click on "halo-models"
 
 Or, use command line by first installing az cli as:
