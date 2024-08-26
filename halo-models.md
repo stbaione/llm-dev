@@ -16,6 +16,7 @@ TPn: Tensor Parallel using n GPUs
 ## TP1
 Models           |     FP16        |   FP8           |     Q4_K         |    Q1_K
 :--------------: | :-------------: |:----------------:|:---------------:|:-------------:
+llama2-7b | | [irpa](https://sharkblobs.blob.core.windows.net/dan/qdq_full_transpose.irpa) [mlir](https://sharkblobs.blob.core.windows.net/dan/batch_llama_v1.mlir) | |
 llama3-8b | [mlir](https://github.com/nod-ai/llm-dev/raw/main/models/llama.8b/llama.8b.fp16.mlir) [gguf](https://sharkpublic.blob.core.windows.net/sharkpublic/llama_gguf/llama.8b.fp16.gguf) | | [mlir](https://github.com/nod-ai/llm-dev/raw/main/models/llama.8b/llama.8b.q4_1.mlir) [gguf](https://sharkpublic.blob.core.windows.net/sharkpublic/llama_gguf/llama.8b.q4_1.gguf) | [mlir](https://github.com/nod-ai/llm-dev/raw/main/models/llama.8b/llama.8b.q4_k.mlir) [gguf](https://sharkpublic.blob.core.windows.net/sharkpublic/llama_gguf/llama.8b.q4_k.gguf)
 llama3-70b | | | |
 llama3-405b |NA | NA|NA |
