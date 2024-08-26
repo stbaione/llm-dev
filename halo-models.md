@@ -76,8 +76,8 @@ Export very large gguf and mlir files for large models | Kyle |
 iree-compile on mlir of parts of model, and file issues | Archana | 
 Numerical issues for any component, tarci profile | Avi |
 Numerical correctness of 70b FP8 (gets from AMD quark team) vs a gold provided by quork | Dan |
-Upload gguf and mlir files | Rob | 
-Fix crash for the issue Rob raised for llama3-8b | Mahesh | 
+Upload gguf and mlir files | Rob | llama3 8b fp16, Q4_1 and Q4_K done
+Fix crash for the issue Rob raised for llama3-8b | Mahesh | [18353](https://github.com/iree-org/iree/issues/18353) [18229](https://github.com/iree-org/iree/issues/18229)
 Causal (Masked) Attention Support for torch to linalg | Zach |
 Causal (Masked) Attention Support for gpu codegen | Rohan |
 
