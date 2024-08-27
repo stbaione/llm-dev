@@ -18,6 +18,7 @@ Fix crash for the issue Rob raised for llama3-8b | Mahesh | [18353](https://gith
 Causal (Masked) Attention Support for torch to linalg | Zach |
 Causal (Masked) Attention Support for gpu codegen | Rohan/Stan | ETA 8/29
 Non-Causal/Causal Attention IR lowering codegen | Ian Wood | 
+Fix issue with export of large constants in exported MLIR | Stella | This is causing [18353](https://github.com/iree-org/iree/issues/18353)
 RotaryEmbeddingLayer support static_tables=False | Vivek | [](https://github.com/nod-ai/sharktank/issues/156)
 
 # Artifacts
