@@ -14,7 +14,7 @@ iree-compile on mlir of parts of model, and file issues | Archana | [Attention I
 Numerical issues for any component, tracy profile | Avi |
 Numerical correctness of 70b FP8 (gets from AMD quark team) vs a gold provided by quork | Dan |
 Upload gguf and mlir files | Rob/Dan/Ian | In progress
-Fix crash for the issue Rob raised for llama3-8b | Mahesh | [18353](https://github.com/iree-org/iree/issues/18353) [18229](https://github.com/iree-org/iree/issues/18229)[18367] (https://github.com/iree-org/iree/issues/18367)
+Fix crash for the issue Rob raised for llama3-8b | Mahesh | [18353](https://github.com/iree-org/iree/issues/18353) [18229](https://github.com/iree-org/iree/issues/18229) [18367](https://github.com/iree-org/iree/issues/18367)
 Causal (Masked) Attention Support for torch to linalg | Zach |
 Causal (Masked) Attention Support for gpu codegen | Rohan/Stan | ETA 8/29
 Non-Causal/Causal Attention IR lowering codegen | Ian Wood | 
