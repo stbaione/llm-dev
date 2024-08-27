@@ -42,10 +42,3 @@ Once we have any particular gguf file we can export the representative IR
 ```
 python3 -m sharktank.examples.export_paged_llm_v1 --gguf-file <input_gguf> --output-mlir <output-mlir>
 ```
-
-Then once exported we can convert to a more representative IR using `iree-compile`. This can result in a
-substantial decrease in size (150 MB vs 3 MB) and validate the source IR is legal.
-
-```
-iree-compile <input-mlir> --compile-to=input -o <output-mlir>
-```
