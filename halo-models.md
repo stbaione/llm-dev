@@ -39,6 +39,15 @@ llama3-70b | NA | | | |
 llama3-405b |NA | NA|NA | |
 grok-1 |NA |NA | | |
 
+### Model status
+
+|Models | compile | runtime |
+|---|---|---|
+|llama3-8b-FP16| PASS | |
+|llama3-8b-Q4_1| PASS | |
+|llama3-8b-Q4_k| PASS | |
+|llama2-7b-FP8| [FAIL](https://github.com/iree-org/iree/issues/18367)||
+
 ## TP2
 Models           |     FP16        |   FP8           |     Q4_1     |  Q4_K
 :--------------: | :-------------: |:----------------:|:----------------: | :----------------:
