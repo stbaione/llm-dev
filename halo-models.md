@@ -6,7 +6,7 @@ This file provides status of readiness of halo models like llama3, grok1 etc. on
 # Glossary
 TPn: Tensor Parallel using n GPUs
 
-### Current status
+# Current status
 
 |Models | compile | inference |
 |---|---|---|
