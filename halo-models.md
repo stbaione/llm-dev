@@ -6,6 +6,15 @@ This file provides status of readiness of halo models like llama3, grok1 etc. on
 # Glossary
 TPn: Tensor Parallel using n GPUs
 
+### Current status
+
+|Models | compile | inference |
+|---|---|---|
+|llama3-8b-FP16| PASS | |
+|llama3-8b-Q4_1| PASS | |
+|llama3-8b-Q4_k| PASS | |
+|llama2-7b-FP8| [FAIL](https://github.com/iree-org/iree/issues/18367)||
+
 # Tasks and Issues
 task      | owner      | status
 :-------: | :--------: |:-------:
@@ -38,15 +47,6 @@ llama3-8b | [mlir](https://sharkpublic.blob.core.windows.net/sharkpublic/ian/lla
 llama3-70b | NA | | [mlir](https://sharkpublic.blob.core.windows.net/sharkpublic/avi/Llama-3.1-70B-q4_1.mlir) | |
 llama3-405b |NA | NA|NA | |
 grok-1 |NA |NA | | |
-
-### Model status
-
-|Models | compile | runtime |
-|---|---|---|
-|llama3-8b-FP16| PASS | |
-|llama3-8b-Q4_1| PASS | |
-|llama3-8b-Q4_k| PASS | |
-|llama2-7b-FP8| [FAIL](https://github.com/iree-org/iree/issues/18367)||
 
 ## TP2
 Models           |     FP16        |   FP8           |     Q4_1     |  Q4_K
