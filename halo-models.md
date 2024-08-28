@@ -19,17 +19,17 @@ TPn: Tensor Parallel using n GPUs
 # Tasks and Issues
 task      | owner      | status
 :-------: | :--------: |:-------:
-Export very large gguf and mlir files for large models | Kyle | 
+Export very large gguf and mlir files for large models (405b) | Kyle/Sai | 
 iree-compile on mlir of parts of model, and file issues | Archana | [Attention IRs](https://github.com/nod-ai/llm-dev/tree/main/models/llama_attention_irs)
-Numerical issues for any component, tracy profile | Avi |
+Numerical issues for any component, tracy profile | Avi | Ruuning into an error laoding llama3-70b
 Numerical correctness of 70b FP8 (gets from AMD quark team) vs a gold provided by quork | Dan |
 Upload gguf and mlir files | Rob/Dan/Ian | In progress
 Fix crash for the issue Rob raised for llama3-8b | Mahesh | [18367](https://github.com/iree-org/iree/issues/18367)
-Causal (Masked) Attention Support for torch to linalg | Zach |
+Causal (Masked) Attention Support for torch to linalg | Rohan | Done (support for is_causal in FE)
 Causal (Masked) Attention Support for gpu codegen | Rohan/Stan | Stan/Rohan got it to work, should be in main by next week
-Non-Causal/Causal Attention IR lowering codegen | Ian Wood | 
-Fix issue with export of large constants in exported MLIR | Stella | This is causing [18353](https://github.com/iree-org/iree/issues/18353)
-RotaryEmbeddingLayer support static_tables=False | Vivek | [issue](https://github.com/nod-ai/sharktank/issues/156) (PR)(https://github.com/llvm/torch-mlir/pull/3671)
+Non-Causal/Causal Attention IR lowering codegen | Kunwar | Not there yet
+Fix issue with export of large constants in exported MLIR | Stella | This is causing [18353](https://github.com/iree-org/iree/issues/18353) Mostly done
+RotaryEmbeddingLayer support static_tables=False | Vivek | [issue](https://github.com/nod-ai/sharktank/issues/156) (PR)(https://github.com/llvm/torch-mlir/pull/3671) Done
 
 # Artifacts
 
