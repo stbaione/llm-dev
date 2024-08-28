@@ -8,7 +8,7 @@ TPn: Tensor Parallel using n GPUs
 
 # Current status
 
-|Models | compile | inference |
+|Models | compile | inference (SPX mode) |
 |---|---|---|
 |llama3-8b-FP16| PASS | |
 |llama3-8b-Q4_1| PASS | |
