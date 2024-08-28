@@ -2,9 +2,11 @@
 # Introduction
 This file provides status of readiness of halo models like llama3, grok1 etc. on MI3xx 
 
-
 # Glossary
 TPn: Tensor Parallel using n GPUs
+
+# Caveats
+- Do not use CPX mode for MI300 as memory is 1/8th and you will run out of resources
 
 # Current status
 
@@ -27,9 +29,10 @@ Upload gguf and mlir files | Rob/Dan/Ian | In progress
 Fix crash for the issue Rob raised for llama3-8b | Mahesh | [18367](https://github.com/iree-org/iree/issues/18367)
 Causal (Masked) Attention Support for torch to linalg | Rohan | Done (support for is_causal in FE)
 Causal (Masked) Attention Support for gpu codegen | Rohan/Stan | Stan/Rohan got it to work, should be in main by next week
-Non-Causal/Causal Attention IR lowering codegen | Kunwar | Not there yet
-Fix issue with export of large constants in exported MLIR | Stella | This is causing [18353](https://github.com/iree-org/iree/issues/18353) Mostly done
-RotaryEmbeddingLayer support static_tables=False | Vivek | [issue](https://github.com/nod-ai/sharktank/issues/156) (PR)(https://github.com/llvm/torch-mlir/pull/3671) Done
+Non-Causal/Causal Attention IR lowering codegen | Kunwar | Not gottent to this stage yet
+Fix issue with export of large constants in exported MLIR | Stella | This is causing [18353](https://github.com/iree-org/iree/issues/18353) Mostly DONE
+RotaryEmbeddingLayer support static_tables=False | Vivek | (PR)(https://github.com/llvm/torch-mlir/pull/3671) DONE
+Pipeline to run llama3 and verify numerics | Kumar/Dhiraj | 
 
 # Artifacts
 
