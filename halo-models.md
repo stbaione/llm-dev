@@ -13,6 +13,7 @@ TPn: Tensor Parallel using n GPUs
 |llama3-8b-FP16| PASS | |
 |llama3-8b-Q4_1| PASS | |
 |llama3-8b-Q4_k| PASS | |
+|llama3-70b-Q4_1| PASS | FAIL |
 |llama2-7b-FP8| [FAIL](https://github.com/iree-org/iree/issues/18367)||
 
 # Tasks and Issues
