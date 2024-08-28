@@ -16,10 +16,10 @@ Numerical correctness of 70b FP8 (gets from AMD quark team) vs a gold provided b
 Upload gguf and mlir files | Rob/Dan/Ian | In progress
 Fix crash for the issue Rob raised for llama3-8b | Mahesh | [18353](https://github.com/iree-org/iree/issues/18353) [18229](https://github.com/iree-org/iree/issues/18229) [18367](https://github.com/iree-org/iree/issues/18367)
 Causal (Masked) Attention Support for torch to linalg | Zach |
-Causal (Masked) Attention Support for gpu codegen | Rohan/Stan | ETA 8/29
+Causal (Masked) Attention Support for gpu codegen | Rohan/Stan | Stan/Rohan got it to work, should be in main by next week
 Non-Causal/Causal Attention IR lowering codegen | Ian Wood | 
 Fix issue with export of large constants in exported MLIR | Stella | This is causing [18353](https://github.com/iree-org/iree/issues/18353)
-RotaryEmbeddingLayer support static_tables=False | Vivek | [](https://github.com/nod-ai/sharktank/issues/156)
+RotaryEmbeddingLayer support static_tables=False | Vivek | [issue](https://github.com/nod-ai/sharktank/issues/156) (PR)(https://github.com/llvm/torch-mlir/pull/3671)
 
 # Artifacts
 
@@ -31,7 +31,7 @@ RotaryEmbeddingLayer support static_tables=False | Vivek | [](https://github.com
 Note: If a link to Azure sharkblob below gives you an error, either use az cli to download (see section Accessing sharkblobs on Azure) or click on [sharkblobs](https://portal.azure.com/#@amdcloud.onmicrosoft.com/resource/subscriptions/8c190d1b-eb91-48d5-bec5-3e7cb7412e6c/resourceGroups/pdue-nod-ai-rg/providers/Microsoft.Storage/storageAccounts/sharkblobs/storagebrowser) , then click on "Blob containers" and then navigate to the file manually and download it. 
 
 ## TP1
-Models           |     FP16        |   FP8           |     Q4_K         |    Q4_1       |    Attention IRs
+Models           |     FP16        |   FP8           |     Q4_1         |    Q4_K       |    Attention IRs
 :--------------: | :-------------: |:----------------:|:---------------:|:-------------:|:------------------:
 llama2-7b | | [irpa](https://sharkblobs.blob.core.windows.net/dan/qdq_full_transpose.irpa) [mlir](https://sharkblobs.blob.core.windows.net/dan/batch_llama_v1.mlir) | | | [Attention IRs](https://github.com/nod-ai/llm-dev/tree/main/models/llama_attention_irs)
 llama3-8b | [mlir](https://sharkpublic.blob.core.windows.net/sharkpublic/ian/llama8b_f16.mlir) [gguf](https://sharkpublic.blob.core.windows.net/sharkpublic/llama8b_f16.gguf) | | [mlir](https://sharkpublic.blob.core.windows.net/sharkpublic/ian/llama8b_q4_1.mlir) [gguf](https://sharkpublic.blob.core.windows.net/sharkpublic/llama_gguf/llama8b_q4_1.gguf) | [mlir](https://sharkpublic.blob.core.windows.net/sharkpublic/ian/llama8b_q4_k.mlir) [gguf](https://sharkpublic.blob.core.windows.net/sharkpublic/llama_gguf/llama8b_Q4_K.gguf) |
@@ -40,7 +40,7 @@ llama3-405b |NA | NA|NA | |
 grok-1 |NA |NA | | |
 
 ## TP2
-Models           |     FP16        |   FP8           |     Q4_K     |  Q4_1
+Models           |     FP16        |   FP8           |     Q4_1     |  Q4_K
 :--------------: | :-------------: |:----------------:|:----------------: | :----------------:
 llama3-8b | | |
 llama3-70b | | |
@@ -49,7 +49,7 @@ grok-1 |NA | |
 
 
 ## TP4
-Models           |     FP16        |   FP8           |     Q4_K   |  Q4_1
+Models           |     FP16        |   FP8           |     Q4_1   |  Q4_K
 :--------------: | :-------------: |:----------------:|:----------------:| :----------------:
 llama3-8b | | |
 llama3-70b | | |
@@ -57,7 +57,7 @@ llama3-405b |NA | |
 grok-1 | | |
 
 ## TP8
-Models           |     FP16        |   FP8           |     Q4_K |  Q4_1
+Models           |     FP16        |   FP8           |     Q4_1 |  Q4_K
 :--------------: | :-------------: |:----------------:|:----------------:| :----------------:
 llama3-8b | | | 
 llama3-70b | | |
