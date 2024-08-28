@@ -35,7 +35,7 @@ Models           |     FP16        |   FP8           |     Q4_1         |    Q4_
 :--------------: | :-------------: |:----------------:|:---------------:|:-------------:|:------------------:
 llama2-7b | | [irpa](https://sharkblobs.blob.core.windows.net/dan/qdq_full_transpose.irpa) [mlir](https://sharkblobs.blob.core.windows.net/dan/batch_llama_v1.mlir) | | | [Attention IRs](https://github.com/nod-ai/llm-dev/tree/main/models/llama_attention_irs)
 llama3-8b | [mlir](https://sharkpublic.blob.core.windows.net/sharkpublic/ian/llama8b_f16.mlir) [gguf](https://sharkpublic.blob.core.windows.net/sharkpublic/llama8b_f16.gguf) | | [mlir](https://sharkpublic.blob.core.windows.net/sharkpublic/ian/llama8b_q4_1.mlir) [gguf](https://sharkpublic.blob.core.windows.net/sharkpublic/llama_gguf/llama8b_q4_1.gguf) | [mlir](https://sharkpublic.blob.core.windows.net/sharkpublic/ian/llama8b_q4_k.mlir) [gguf](https://sharkpublic.blob.core.windows.net/sharkpublic/llama_gguf/llama8b_Q4_K.gguf) |
-llama3-70b | NA | | | |
+llama3-70b | NA | | [mlir](https://sharkpublic.blob.core.windows.net/sharkpublic/avi/Llama-3.1-70B-q4_1.mlir) | |
 llama3-405b |NA | NA|NA | |
 grok-1 |NA |NA | | |
 
