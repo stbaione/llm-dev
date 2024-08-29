@@ -12,7 +12,7 @@ TPn: Tensor Parallel using n GPUs
 
 |Models | compile | inference (SPX mode) |
 |---|---|---|
-|llama3-8b-FP16| PASS | |
+|llama3-8b-FP16| PASS | prefill (1746 ms), decode (71.8 ms) |
 |llama3-8b-Q4_1| PASS | |
 |llama3-8b-Q4_k| PASS | |
 |llama3-70b-Q4_1| PASS | FAIL |
