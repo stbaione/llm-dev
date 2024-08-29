@@ -93,14 +93,19 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 And then, get the account key for the storage account by clicking on "Storage Accounts" in Azure Services or searching "sharkblobs" in the top search bar. Then, click on sharkblobs. Then, on the left side bar, under Security + networking, click on "Access keys". Copy the account key from here and use in the following command
 To upload:
 ```
-az storage blob upload --account-name sharkblobs --container-name halo-models --name <azure path, example: llama3_8b/tp1/llama.mlir> --file <local_path_on_computer> --account-key <key_retrieved_from_directions_above>
+az storage blob upload --account-name sharkblobs --container-name sharkblobs --name <azure path, example: halo-models/llama3_8b/tp1/llama.mlir> --file <local_path_on_computer> --account-key <key_retrieved_from_directions_above>
 ```
 
 To download:
 ```
-az storage blob download --account-name sharkblobs --container-name halo-models --name <azure path, example: llama3_8b/tp1/llama.mlir> --file <local_path_on_computer> --account-key <key_retrieved_from_directions_above>
+az storage blob download --account-name sharkblobs --container-name sharkblobs --name <azure path, example: halo-models/llama3_8b/tp1/llama.mlir> --file <local_path_on_computer> --account-key <key_retrieved_from_directions_above>
 ```
 
+if you are downloading from "sharkpublic" then replace instructions above by sharkpublic and get your account access key for sharkpublic.
+Example:
+```
+az storage blob download --account-name sharkpublic --container-name sharkpublic --name ian/llama8b_f16.gguf --file llama8b_f16.gguf --account-key <key string>
+```
 
 # AMD GPU Machines
 [MI250-300](https://github.com/nod-ai/playbook/blob/main/HOWTO/access-mi250-mi300.md)
