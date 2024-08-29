@@ -12,7 +12,7 @@ TPn: Tensor Parallel using n GPUs
 
 |Models | compile | inference (SPX mode) | tracy |
 |---|---|---|---|
-|llama3-8b-FP16| PASS | prefill (1746 ms), decode (71.8 ms) | [prefill](https://sharkpublic.blob.core.windows.net/sharkpublic/avi/llama8b_f16_prefill.tracy) [decode](https://sharkpublic.blob.core.windows.net/sharkpublic/avi/llama8b_f16_decode.tracy) |
+|llama3-8b-FP16| PASS | prefill (1746 ms), decode (71.8 ms), [commands](https://gist.github.com/aviator19941/f10b5b7a7c3975de4363450b4d7ec68f) | [prefill](https://sharkpublic.blob.core.windows.net/sharkpublic/avi/llama8b_f16_prefill.tracy) [decode](https://sharkpublic.blob.core.windows.net/sharkpublic/avi/llama8b_f16_decode.tracy) |
 |llama3-8b-Q4_1| PASS | | |
 |llama3-8b-Q4_k| PASS | | |
 |llama3-70b-Q4_1| PASS | FAIL | |
