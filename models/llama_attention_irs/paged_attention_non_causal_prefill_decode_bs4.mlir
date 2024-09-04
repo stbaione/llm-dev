@@ -1,8 +1,8 @@
 module @module {
   util.func public @prefill_bs4$async(%arg0: !hal.buffer_view, %arg1: !hal.buffer_view, %arg2: !hal.buffer_view, %arg3: !hal.buffer_view, %arg4: !hal.buffer_view, %arg5: !hal.buffer_view, %arg6: !hal.fence, %arg7: !hal.fence) -> !hal.buffer_view attributes {inlining_policy = #util.inline.never, iree.abi.model = "coarse-fences", iree.abi.stub} {
     %cst = arith.constant 8.837890e-02 : f16
-    %c1_i64 = arith.constant 1 : i64
     %c64_i64 = arith.constant 64 : i64
+    %c1_i64 = arith.constant 1 : i64
     %0 = hal.tensor.import wait(%arg6) => %arg0 : !hal.buffer_view -> tensor<4x64x32x128xf16>
     %1 = hal.tensor.import wait(%arg6) => %arg1 : !hal.buffer_view -> tensor<4x64x32x128xf16>
     %2 = hal.tensor.import wait(%arg6) => %arg2 : !hal.buffer_view -> tensor<4x64x32x128xf16>
