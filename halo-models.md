@@ -15,7 +15,7 @@ TPn: Tensor Parallel using n GPUs
 |llama3-8b-FP16| PASS | prefill (1746 ms), decode (71.8 ms), [commands](https://gist.github.com/aviator19941/f10b5b7a7c3975de4363450b4d7ec68f) | [prefill](https://sharkpublic.blob.core.windows.net/sharkpublic/avi/llama8b_f16_prefill.tracy) [decode](https://sharkpublic.blob.core.windows.net/sharkpublic/avi/llama8b_f16_decode.tracy) |
 |llama3-8b-Q4_1| PASS | prefill (1817 ms), decode (57.3 ms), [commands](https://gist.github.com/aviator19941/f10b5b7a7c3975de4363450b4d7ec68f) | [prefill](https://sharkpublic.blob.core.windows.net/sharkpublic/avi/llama8b_q4_1_prefill_v2.tracy) [decode](https://sharkpublic.blob.core.windows.net/sharkpublic/avi/llama8b_q4_1_decode_v2.tracy) |
 |llama3-8b-Q4_k| PASS | | |
-|llama3-70b-Q4_1| PASS | | [FAIL](https://github.com/iree-org/iree/issues/18436) |
+|llama3-70b-Q4_1| PASS | prefill (3543 ms), decode (213 ms), [commands](https://gist.github.com/aviator19941/79ee5afc39c225ec7469030320014fa3) | [FAIL](https://github.com/iree-org/iree/issues/18436) |
 |llama2-7b-FP8| [FAIL](https://github.com/iree-org/iree/issues/18367)| | |
 
 # Tasks and Issues
