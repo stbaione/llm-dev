@@ -80,7 +80,7 @@ grok-1 | | |
 ## MLIR generation and Compilation
 [Quantization](https://github.com/nod-ai/llm-dev/blob/main/Quantization.md)
 ```
-iree-compile --iree-hal-target-backends=rocm <mlir file>
+iree-compile --iree-hal-target-backends=rocm --iree-hip-target=gfx942 <mlir file> -o <vmfb file>
 ```
 
 ## Accessing sharkblobs on Azure:
