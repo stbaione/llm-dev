@@ -8,8 +8,8 @@ We can source some based gguf files below and generate alternative
 
 |Model Variant|Size|Source|
 | ------------- | ---- | ---- |
-| LLaMa3|8b|[link](https://sharkpublic.blob.core.windows.net/sharkpublic/llama_gguf/llama.8b.fp16.gguf)|
-| LLaMa3|70b|[link](https://huggingface.co/MaziyarPanahi/Meta-Llama-3-70B-Instruct-GGUF/tree/main)|
+| LLaMa3|8b|[link](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_8b/llama8b_f16.gguf)|
+| LLaMa3|70b|[link](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_70b/llama70b_f16.gguf)|
 | LLaMa3|405B| |
 | Grok-1|365B| |
 
