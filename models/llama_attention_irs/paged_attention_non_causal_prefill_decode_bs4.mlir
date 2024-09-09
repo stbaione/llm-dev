@@ -13,74 +13,65 @@ module @module {
     %5 = tensor.empty() : tensor<4x4xi64>
     %6 = linalg.generic {indexing_maps = [affine_map<(d0, d1) -> (d0, d1)>, affine_map<(d0, d1) -> (d0, d1)>], iterator_types = ["parallel", "parallel"]} ins(%3 : tensor<4x4xi64>) outs(%5 : tensor<4x4xi64>) {
     ^bb0(%in: i64, %out: i64):
-      %24 = arith.muli %in, %c64_i64 : i64
-      linalg.yield %24 : i64
+      %22 = arith.muli %in, %c64_i64 : i64
+      linalg.yield %22 : i64
     } -> tensor<4x4xi64>
     %expanded_0 = tensor.expand_shape %1 [[0], [1, 2], [3], [4]] output_shape [4, 4, 16, 32, 128] : tensor<4x64x32x128xf16> into tensor<4x4x16x32x128xf16>
-    %collapsed_1 = tensor.collapse_shape %6 [[0, 1]] : tensor<4x4xi64> into tensor<16xi64>
-    %collapsed_2 = tensor.collapse_shape %expanded_0 [[0, 1], [2], [3], [4]] : tensor<4x4x16x32x128xf16> into tensor<16x16x32x128xf16>
-    %expanded_3 = tensor.expand_shape %collapsed_1 [[0, 1]] output_shape [16, 1] : tensor<16xi64> into tensor<16x1xi64>
-    %expanded_4 = tensor.expand_shape %collapsed_2 [[0], [1, 2], [3], [4]] output_shape [16, 1, 16, 32, 128] : tensor<16x16x32x128xf16> into tensor<16x1x16x32x128xf16>
-    %7 = tensor.empty() : tensor<16x1xi32>
-    %8 = linalg.generic {indexing_maps = [affine_map<(d0, d1) -> (d0, 0)>, affine_map<(d0, d1) -> (d0, d1)>], iterator_types = ["parallel", "parallel"]} ins(%expanded_3 : tensor<16x1xi64>) outs(%7 : tensor<16x1xi32>) {
-    ^bb0(%in: i64, %out: i32):
-      %24 = arith.trunci %in : i64 to i32
-      linalg.yield %24 : i32
-    } -> tensor<16x1xi32>
-    %9 = iree_linalg_ext.scatter dimension_map = [0] unique_indices(false) ins(%expanded_4, %8 : tensor<16x1x16x32x128xf16>, tensor<16x1xi32>) outs(%collapsed : tensor<16384x16x32x128xf16>) {
-    ^bb0(%arg8: f16, %arg9: f16):
-      iree_linalg_ext.yield %arg8 : f16
-    } -> tensor<16384x16x32x128xf16>
-    %expanded_5 = tensor.expand_shape %2 [[0], [1, 2], [3], [4]] output_shape [4, 4, 16, 32, 128] : tensor<4x64x32x128xf16> into tensor<4x4x16x32x128xf16>
-    %10 = linalg.generic {indexing_maps = [affine_map<(d0, d1) -> (d0, d1)>, affine_map<(d0, d1) -> (d0, d1)>], iterator_types = ["parallel", "parallel"]} ins(%6 : tensor<4x4xi64>) outs(%5 : tensor<4x4xi64>) {
+    %collapsed_1 = tensor.collapse_shape %expanded_0 [[0, 1], [2], [3], [4]] : tensor<4x4x16x32x128xf16> into tensor<16x16x32x128xf16>
+    %collapsed_2 = tensor.collapse_shape %6 [[0, 1]] : tensor<4x4xi64> into tensor<16xi64>
+    %expanded_3 = tensor.expand_shape %2 [[0], [1, 2], [3], [4]] output_shape [4, 4, 16, 32, 128] : tensor<4x64x32x128xf16> into tensor<4x4x16x32x128xf16>
+    %collapsed_4 = tensor.collapse_shape %expanded_3 [[0, 1], [2], [3], [4]] : tensor<4x4x16x32x128xf16> into tensor<16x16x32x128xf16>
+    %7 = linalg.generic {indexing_maps = [affine_map<(d0, d1) -> (d0, d1)>, affine_map<(d0, d1) -> (d0, d1)>], iterator_types = ["parallel", "parallel"]} ins(%6 : tensor<4x4xi64>) outs(%5 : tensor<4x4xi64>) {
     ^bb0(%in: i64, %out: i64):
-      %24 = arith.addi %in, %c1_i64 : i64
-      linalg.yield %24 : i64
+      %22 = arith.addi %in, %c1_i64 : i64
+      linalg.yield %22 : i64
     } -> tensor<4x4xi64>
-    %collapsed_6 = tensor.collapse_shape %10 [[0, 1]] : tensor<4x4xi64> into tensor<16xi64>
-    %collapsed_7 = tensor.collapse_shape %expanded_5 [[0, 1], [2], [3], [4]] : tensor<4x4x16x32x128xf16> into tensor<16x16x32x128xf16>
-    %expanded_8 = tensor.expand_shape %collapsed_6 [[0, 1]] output_shape [16, 1] : tensor<16xi64> into tensor<16x1xi64>
-    %expanded_9 = tensor.expand_shape %collapsed_7 [[0], [1, 2], [3], [4]] output_shape [16, 1, 16, 32, 128] : tensor<16x16x32x128xf16> into tensor<16x1x16x32x128xf16>
-    %11 = linalg.generic {indexing_maps = [affine_map<(d0, d1) -> (d0, 0)>, affine_map<(d0, d1) -> (d0, d1)>], iterator_types = ["parallel", "parallel"]} ins(%expanded_8 : tensor<16x1xi64>) outs(%7 : tensor<16x1xi32>) {
+    %collapsed_5 = tensor.collapse_shape %7 [[0, 1]] : tensor<4x4xi64> into tensor<16xi64>
+    %concat = tensor.concat dim(0) %collapsed_2, %collapsed_5 : (tensor<16xi64>, tensor<16xi64>) -> tensor<32xi64>
+    %concat_6 = tensor.concat dim(0) %collapsed_1, %collapsed_4 : (tensor<16x16x32x128xf16>, tensor<16x16x32x128xf16>) -> tensor<32x16x32x128xf16>
+    %expanded_7 = tensor.expand_shape %concat [[0, 1]] output_shape [32, 1] : tensor<32xi64> into tensor<32x1xi64>
+    %expanded_8 = tensor.expand_shape %concat_6 [[0], [1, 2], [3], [4]] output_shape [32, 1, 16, 32, 128] : tensor<32x16x32x128xf16> into tensor<32x1x16x32x128xf16>
+    %8 = tensor.empty() : tensor<32x1xi32>
+    %9 = linalg.generic {indexing_maps = [affine_map<(d0, d1) -> (d0, 0)>, affine_map<(d0, d1) -> (d0, d1)>], iterator_types = ["parallel", "parallel"]} ins(%expanded_7 : tensor<32x1xi64>) outs(%8 : tensor<32x1xi32>) {
     ^bb0(%in: i64, %out: i32):
-      %24 = arith.trunci %in : i64 to i32
-      linalg.yield %24 : i32
-    } -> tensor<16x1xi32>
-    %12 = iree_linalg_ext.scatter dimension_map = [0] unique_indices(false) ins(%expanded_9, %11 : tensor<16x1x16x32x128xf16>, tensor<16x1xi32>) outs(%9 : tensor<16384x16x32x128xf16>) {
+      %22 = arith.trunci %in : i64 to i32
+      linalg.yield %22 : i32
+    } -> tensor<32x1xi32>
+    %10 = iree_linalg_ext.scatter dimension_map = [0] unique_indices(false) ins(%expanded_8, %9 : tensor<32x1x16x32x128xf16>, tensor<32x1xi32>) outs(%collapsed : tensor<16384x16x32x128xf16>) {
     ^bb0(%arg8: f16, %arg9: f16):
       iree_linalg_ext.yield %arg8 : f16
     } -> tensor<16384x16x32x128xf16>
-    %expanded_10 = tensor.expand_shape %12 [[0, 1, 2], [3], [4], [5]] output_shape [256, 32, 2, 16, 32, 128] : tensor<16384x16x32x128xf16> into tensor<256x32x2x16x32x128xf16>
-    %collapsed_11 = tensor.collapse_shape %expanded_10 [[0], [1, 2, 3, 4, 5]] : tensor<256x32x2x16x32x128xf16> into tensor<256x4194304xf16>
-    %13 = tensor.empty() : tensor<4x32x64x128xf16>
-    %14 = linalg.generic {indexing_maps = [affine_map<(d0, d1, d2, d3) -> (d0, d1, d2, d3)>, affine_map<(d0, d1, d2, d3) -> (d0, d2, d1, d3)>], iterator_types = ["parallel", "parallel", "parallel", "parallel"]} ins(%0 : tensor<4x64x32x128xf16>) outs(%13 : tensor<4x32x64x128xf16>) {
+    %expanded_9 = tensor.expand_shape %10 [[0, 1, 2], [3], [4], [5]] output_shape [256, 32, 2, 16, 32, 128] : tensor<16384x16x32x128xf16> into tensor<256x32x2x16x32x128xf16>
+    %collapsed_10 = tensor.collapse_shape %expanded_9 [[0], [1, 2, 3, 4, 5]] : tensor<256x32x2x16x32x128xf16> into tensor<256x4194304xf16>
+    %11 = tensor.empty() : tensor<4x32x64x128xf16>
+    %12 = linalg.generic {indexing_maps = [affine_map<(d0, d1, d2, d3) -> (d0, d1, d2, d3)>, affine_map<(d0, d1, d2, d3) -> (d0, d2, d1, d3)>], iterator_types = ["parallel", "parallel", "parallel", "parallel"]} ins(%0 : tensor<4x64x32x128xf16>) outs(%11 : tensor<4x32x64x128xf16>) {
     ^bb0(%in: f16, %out: f16):
       linalg.yield %in : f16
     } -> tensor<4x32x64x128xf16>
-    %15 = linalg.generic {indexing_maps = [affine_map<(d0, d1, d2, d3) -> (d0, d1, d2, d3)>, affine_map<(d0, d1, d2, d3) -> (d0, d2, d1, d3)>], iterator_types = ["parallel", "parallel", "parallel", "parallel"]} ins(%1 : tensor<4x64x32x128xf16>) outs(%13 : tensor<4x32x64x128xf16>) {
+    %13 = linalg.generic {indexing_maps = [affine_map<(d0, d1, d2, d3) -> (d0, d1, d2, d3)>, affine_map<(d0, d1, d2, d3) -> (d0, d2, d1, d3)>], iterator_types = ["parallel", "parallel", "parallel", "parallel"]} ins(%1 : tensor<4x64x32x128xf16>) outs(%11 : tensor<4x32x64x128xf16>) {
     ^bb0(%in: f16, %out: f16):
       linalg.yield %in : f16
     } -> tensor<4x32x64x128xf16>
-    %16 = linalg.generic {indexing_maps = [affine_map<(d0, d1, d2, d3) -> (d0, d1, d2, d3)>, affine_map<(d0, d1, d2, d3) -> (d0, d2, d1, d3)>], iterator_types = ["parallel", "parallel", "parallel", "parallel"]} ins(%2 : tensor<4x64x32x128xf16>) outs(%13 : tensor<4x32x64x128xf16>) {
+    %14 = linalg.generic {indexing_maps = [affine_map<(d0, d1, d2, d3) -> (d0, d1, d2, d3)>, affine_map<(d0, d1, d2, d3) -> (d0, d2, d1, d3)>], iterator_types = ["parallel", "parallel", "parallel", "parallel"]} ins(%2 : tensor<4x64x32x128xf16>) outs(%11 : tensor<4x32x64x128xf16>) {
     ^bb0(%in: f16, %out: f16):
       linalg.yield %in : f16
     } -> tensor<4x32x64x128xf16>
-    %collapsed_12 = tensor.collapse_shape %14 [[0, 1], [2], [3]] : tensor<4x32x64x128xf16> into tensor<128x64x128xf16>
-    %collapsed_13 = tensor.collapse_shape %15 [[0, 1], [2], [3]] : tensor<4x32x64x128xf16> into tensor<128x64x128xf16>
-    %collapsed_14 = tensor.collapse_shape %16 [[0, 1], [2], [3]] : tensor<4x32x64x128xf16> into tensor<128x64x128xf16>
-    %17 = tensor.empty() : tensor<128x64x128xf16>
-    %18 = iree_linalg_ext.attention {indexing_maps = [affine_map<(d0, d1, d2, d3, d4) -> (d0, d1, d2)>, affine_map<(d0, d1, d2, d3, d4) -> (d0, d3, d2)>, affine_map<(d0, d1, d2, d3, d4) -> (d0, d3, d4)>, affine_map<(d0, d1, d2, d3, d4) -> (d0, d1, d4)>]} ins(%collapsed_12, %collapsed_13, %collapsed_14, %cst : tensor<128x64x128xf16>, tensor<128x64x128xf16>, tensor<128x64x128xf16>, f16) outs(%17 : tensor<128x64x128xf16>) -> tensor<128x64x128xf16>
-    %expanded_15 = tensor.expand_shape %18 [[0, 1], [2], [3]] output_shape [4, 32, 64, 128] : tensor<128x64x128xf16> into tensor<4x32x64x128xf16>
-    %19 = tensor.empty() : tensor<4x64x32x128xf16>
-    %20 = linalg.generic {indexing_maps = [affine_map<(d0, d1, d2, d3) -> (d0, d1, d2, d3)>, affine_map<(d0, d1, d2, d3) -> (d0, d2, d1, d3)>], iterator_types = ["parallel", "parallel", "parallel", "parallel"]} ins(%expanded_15 : tensor<4x32x64x128xf16>) outs(%19 : tensor<4x64x32x128xf16>) {
+    %collapsed_11 = tensor.collapse_shape %12 [[0, 1], [2], [3]] : tensor<4x32x64x128xf16> into tensor<128x64x128xf16>
+    %collapsed_12 = tensor.collapse_shape %13 [[0, 1], [2], [3]] : tensor<4x32x64x128xf16> into tensor<128x64x128xf16>
+    %collapsed_13 = tensor.collapse_shape %14 [[0, 1], [2], [3]] : tensor<4x32x64x128xf16> into tensor<128x64x128xf16>
+    %15 = tensor.empty() : tensor<128x64x128xf16>
+    %16 = iree_linalg_ext.attention {indexing_maps = [affine_map<(d0, d1, d2, d3, d4) -> (d0, d1, d2)>, affine_map<(d0, d1, d2, d3, d4) -> (d0, d3, d2)>, affine_map<(d0, d1, d2, d3, d4) -> (d0, d3, d4)>, affine_map<(d0, d1, d2, d3, d4) -> (d0, d1, d4)>]} ins(%collapsed_11, %collapsed_12, %collapsed_13, %cst : tensor<128x64x128xf16>, tensor<128x64x128xf16>, tensor<128x64x128xf16>, f16) outs(%15 : tensor<128x64x128xf16>) -> tensor<128x64x128xf16>
+    %expanded_14 = tensor.expand_shape %16 [[0, 1], [2], [3]] output_shape [4, 32, 64, 128] : tensor<128x64x128xf16> into tensor<4x32x64x128xf16>
+    %17 = tensor.empty() : tensor<4x64x32x128xf16>
+    %18 = linalg.generic {indexing_maps = [affine_map<(d0, d1, d2, d3) -> (d0, d1, d2, d3)>, affine_map<(d0, d1, d2, d3) -> (d0, d2, d1, d3)>], iterator_types = ["parallel", "parallel", "parallel", "parallel"]} ins(%expanded_14 : tensor<4x32x64x128xf16>) outs(%17 : tensor<4x64x32x128xf16>) {
     ^bb0(%in: f16, %out: f16):
       linalg.yield %in : f16
     } -> tensor<4x64x32x128xf16>
-    %collapsed_16 = tensor.collapse_shape %20 [[0], [1], [2, 3]] : tensor<4x64x32x128xf16> into tensor<4x64x4096xf16>
-    %21 = hal.tensor.alias wait(%arg6) => %collapsed_11 : tensor<256x4194304xf16> to %arg5 : !hal.buffer_view
-    %22:2 = hal.tensor.barrier join(%21, %collapsed_16 : tensor<256x4194304xf16>, tensor<4x64x4096xf16>) => %arg7 : !hal.fence
-    %23 = hal.tensor.export %22#1 : tensor<4x64x4096xf16> -> !hal.buffer_view
-    util.return %23 : !hal.buffer_view
+    %collapsed_15 = tensor.collapse_shape %18 [[0], [1], [2, 3]] : tensor<4x64x32x128xf16> into tensor<4x64x4096xf16>
+    %19 = hal.tensor.alias wait(%arg6) => %collapsed_10 : tensor<256x4194304xf16> to %arg5 : !hal.buffer_view
+    %20:2 = hal.tensor.barrier join(%19, %collapsed_15 : tensor<256x4194304xf16>, tensor<4x64x4096xf16>) => %arg7 : !hal.fence
+    %21 = hal.tensor.export %20#1 : tensor<4x64x4096xf16> -> !hal.buffer_view
+    util.return %21 : !hal.buffer_view
   }
   util.func public @prefill_bs4(%arg0: !hal.buffer_view, %arg1: !hal.buffer_view, %arg2: !hal.buffer_view, %arg3: !hal.buffer_view, %arg4: !hal.buffer_view, %arg5: !hal.buffer_view) -> !hal.buffer_view attributes {iree.abi.stub} {
     %0 = util.null : !hal.fence
