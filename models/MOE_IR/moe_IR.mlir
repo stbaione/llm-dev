@@ -4,7 +4,7 @@ module @module {
   util.global private @__auto.constant_8_8192_6144_torch.float32 = dense_resource<__auto.constant_8_8192_6144_torch.float32> : tensor<8x8192x6144xf32>
   util.global private @__auto.constant_8_8192_6144_torch.float32$1 = dense_resource<__auto.constant_8_8192_6144_torch.float32$1> : tensor<8x8192x6144xf32>
   util.global private @__auto.constant_8_6144_8192_torch.float32 = dense_resource<__auto.constant_8_6144_8192_torch.float32> : tensor<8x6144x8192xf32>
-  util.func public @moe_block$async(%arg0: !hal.buffer_view, %arg1: !hal.fence, %arg2: !hal.fence) -> !hal.buffer_view attributes {inlining_policy = #util.inline.never, iree.abi.model = "coarse-fences", iree.abi.stub} {
+  util.func public @prefill_grok$async(%arg0: !hal.buffer_view, %arg1: !hal.fence, %arg2: !hal.fence) -> !hal.buffer_view attributes {inlining_policy = #util.inline.never, iree.abi.model = "coarse-fences", iree.abi.stub} {
     %c0_i64 = arith.constant 0 : i64
     %cst = arith.constant 0.000000e+00 : f32
     %cst_0 = arith.constant 0xFF800000 : f32
@@ -273,13 +273,13 @@ module @module {
     %72 = hal.tensor.export %71 : tensor<2x32x6144xf32> -> !hal.buffer_view
     util.return %72 : !hal.buffer_view
   }
-  util.func public @moe_block(%arg0: !hal.buffer_view) -> !hal.buffer_view attributes {iree.abi.stub} {
+  util.func public @prefill_grok(%arg0: !hal.buffer_view) -> !hal.buffer_view attributes {iree.abi.stub} {
     %0 = util.null : !hal.fence
     %c-1_i32 = arith.constant -1 : i32
     %c0 = arith.constant 0 : index
     %device_0 = hal.devices.get %c0 : !hal.device
     %fence = hal.fence.create device(%device_0 : !hal.device) flags("None") : !hal.fence
-    %1 = util.call @moe_block$async(%arg0, %0, %fence) : (!hal.buffer_view, !hal.fence, !hal.fence) -> !hal.buffer_view
+    %1 = util.call @prefill_grok$async(%arg0, %0, %fence) : (!hal.buffer_view, !hal.fence, !hal.fence) -> !hal.buffer_view
     %status = hal.fence.await until([%fence]) timeout_millis(%c-1_i32) : i32
     util.return %1 : !hal.buffer_view
   }
