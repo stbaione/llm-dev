@@ -19,20 +19,15 @@ TPn: Tensor Parallel using n GPUs
 |llama2-7b-FP8| [FAIL](https://github.com/iree-org/iree/issues/18367)| | |
 
 # Tasks and Issues
-task      | owner      | status
-:-------: | :--------: |:-------:
-Export very large gguf and mlir files for large models (405b) | Kyle/Sai | 
-iree-compile on mlir of parts of model, and file issues | Archana | [Attention IRs](https://github.com/nod-ai/llm-dev/tree/main/models/llama_attention_irs)
-Numerical issues for any component, tracy profile | Avi | Ruuning into an error laoding llama3-70b
-Numerical correctness of 70b FP8 (gets from AMD quark team) vs a gold provided by quork | Dan |
-Upload gguf and mlir files | Rob/Dan/Ian | In progress
-Fix crash for the issue Rob raised for llama3-8b | Mahesh | [18367](https://github.com/iree-org/iree/issues/18367)
-Causal (Masked) Attention Support for torch to linalg | Rohan | Done (support for is_causal in FE)
-Causal (Masked) Attention Support for gpu codegen | Rohan/Stan | Stan/Rohan got it to work, should be in main by next week
-Non-Causal/Causal Attention IR lowering codegen | Kunwar | Not gottent to this stage yet
-Fix issue with export of large constants in exported MLIR | Stella | This is causing [18353](https://github.com/iree-org/iree/issues/18353) Mostly DONE
-RotaryEmbeddingLayer support static_tables=False | Vivek | (PR)(https://github.com/llvm/torch-mlir/pull/3671) DONE
-Pipeline to run llama3 and verify numerics | Kumar/Dhiraj | 
+task      | owner      | status | next actions
+:-------: | :--------: |:-------: | :------:
+Sharded LLaMa | boian | In progress | Landing first sharded tests
+Export/Compile LLaMa | kyle | blocked on `torch.aten.complex` | rob is authoring fix
+LLaMa 8 prefill comparison | rob | layerwise comparison for prefill is normal | handing off tooling to Avi
+LLaMa 8 decode comparison | avi | still investigating cause of numeric issue | reuse rob's tooling to investigate
+FP8 quantized model | dan | finishing results from quark | following up with Giuseppe on new `fp8 quantization
+Model evaluation tooling | archana | working on perplexity script | update on progress / blockers
+
 
 # Artifacts
 
