@@ -28,6 +28,29 @@ LLaMa 8 decode comparison | avi | still investigating cause of numeric issue | r
 FP8 quantized model | dan | finishing results from quark | following up with Giuseppe on new `fp8 quantization
 Model evaluation tooling | archana | working on perplexity script | update on progress / blockers
 
+# Goals
+
+- [ ] Attention Compiler Work
+  - [ ] Dynamic sequence length
+  - [ ] Causal Masking
+  - [ ] Flex attention compilation
+- [ ] LLaMa 8b prefill and decode
+  - [x] validated numerically correct 
+  - [ ] export
+  - [ ] compiled
+  - [ ] benchmarked
+  - [ ] replicate for larger variants
+- [ ] Mixtral prefill and decode
+  - [ ] validated numerically correct 
+  - [ ] export
+  - [ ] compiled
+  - [ ] benchmarked
+- [ ] Grok prefill and decode
+  - [x] validated numerically correct 
+  - [ ] export
+  - [ ] compiled
+  - [ ] benchmarked
+
 
 # Artifacts
 
