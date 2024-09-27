@@ -17,6 +17,7 @@ TPn: Tensor Parallel using n GPUs
 |llama3-8b-Q4_k| PASS | | |
 |llama3-70b-Q4_1| PASS | prefill (3543 ms), decode (213 ms), [commands](https://gist.github.com/aviator19941/79ee5afc39c225ec7469030320014fa3) | [prefill](https://sharkpublic.blob.core.windows.net/sharkpublic/avi/llama70b_q4_1_prefill.tracy) [decode](https://sharkpublic.blob.core.windows.net/sharkpublic/avi/llama70b_q4_1_decode.tracy) |
 |llama2-7b-FP8| [FAIL](https://github.com/iree-org/iree/issues/18367)| | |
+|grok-1-Q4_1| PASS | FAIL, out of memory | [prefill](https://sharkpublic.blob.core.windows.net/sharkpublic/halo-models/grok-1/grok-1-q4_1-rocm-prefill.tracy) [decode](https://sharkpublic.blob.core.windows.net/sharkpublic/halo-models/grok-1/grok-1-q4_1-rocm-decode.tracy) |
 
 # Tasks and Issues
 task      | owner      | status | next actions
@@ -47,8 +48,8 @@ Model evaluation tooling | archana | working on perplexity script | update on pr
   - [ ] benchmarked
 - [ ] Grok prefill and decode
   - [x] validated numerically correct 
-  - [ ] export
-  - [ ] compiled
+  - [x] export
+  - [x] compiled
   - [ ] benchmarked
 
 
