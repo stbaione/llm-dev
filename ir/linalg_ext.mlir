@@ -35,7 +35,7 @@ func.func @custom_op_symbolic_dims(
                          affine_map<(d0, d1, d2, d3, d4) -> (d0, d1)>],
         iterator_types = [#iree_linalg_ext.iterator_type<parallel>,
                           #iree_linalg_ext.iterator_type<parallel>,
-                          #iree_linalg_ext.iterator_type<reduction>,
+                          #iree_linalg_ext.iterator_type<parallel>,
                           #iree_linalg_ext.iterator_type<reduction>,
                           #iree_linalg_ext.iterator_type<reduction>]}
         ins(%q, %k, %v : !q_type, !k_type, !v_type)
@@ -111,7 +111,7 @@ func.func @custom_op_symbolic_dims(
         linalg.yield %13 : f32
       } -> tensor<?x?x?xf32>
 
-      // Perform the second matmul for hte output tile
+      // Perform the second matmul for the output tile
       %new_ot = linalg.batch_matmul ins(%new_qk, %vt : tensor<?x?x?xf32>, tensor<?x?x?xf32>) outs(%norm_ot : tensor<?x?x?xf32>) -> tensor<?x?x?xf32>
 
       iree_linalg_ext.yield %new_ot, %new_max, %new_sum : tensor<?x?x?xf32>, tensor<?x?xf32>, tensor<?x?xf32>
