@@ -1,9 +1,29 @@
 
 # Introduction
-This file provides status of readiness of halo models like llama3, grok1 etc. on MI3xx 
+This page is project tracker to get halo models like llama3, grok1 etc. working on one or more MI3xx using shark/iree. 
+
+# November 20, 2024 Release Goals
+- llama3.1 405B sharded across 8 MI300x GPUs producing correct numeical results (P0)
+- llama3.1 405B sharded across 8 MI300x GPUs performant at level of vLLM PyTorch (Fused Ops Eager Mode)
+- Use llama3.1 8B to develop and test
 
 # Glossary
-TPn: Tensor Parallel using n GPUs
+TPn: Tensor Parallel using n GPUs where a large tensor is sharded across multiple GPUs using sharktank 
+
+
+# Schedule
+|Item                          | 10/18/24      | 10/25/24       | 11/1/24       | 11/8/24      | 11/15/24     |
+|------------------------------|---------------|----------------|---------------|--------------|--------------|
+| Machine and Storage          | two 8x MI300x SPX mode ensured working with how to use info added to [Nod AI Lab](https://confluence.amd.com/display/ENGIT/Nod.AI+Lab) @saienduri (Done: 10/17)| 
+| Sharktank Modeling | |
+| Sharding | |
+| IREE compilation | |
+| IREE Inference Numerics | |
+| Shortfin Serving | |
+| IREE and Serving Inference Performance | |
+
+# AMD GPU Machines
+[MI300](https://confluence.amd.com/display/ENGIT/Nod.AI+Lab#Nod.AILab-MI300NodAIMachines)
 
 # Caveats
 - Do not use CPX mode for MI300 as memory is 1/8th and you will run out of resources
@@ -126,5 +146,4 @@ Example:
 az storage blob download --account-name sharkpublic --container-name sharkpublic --name ian/llama8b_f16.gguf --file llama8b_f16.gguf --account-key <key string>
 ```
 
-# AMD GPU Machines
-[MI250-300](https://github.com/nod-ai/playbook/blob/main/HOWTO/access-mi250-mi300.md)
+
