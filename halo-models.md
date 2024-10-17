@@ -14,18 +14,22 @@ TPn: Tensor Parallel using n GPUs where a large tensor is sharded across multipl
 # Schedule
 |Item                          | 10/18/24      | 10/25/24       | 11/1/24       | 11/8/24      | 11/15/24     |
 |------------------------------|---------------|----------------|---------------|--------------|--------------|
-| Machine and Storage          | two 8x MI300x SPX mode ensured working with how to use info added to [Nod AI Lab](https://confluence.amd.com/display/ENGIT/Nod.AI+Lab) @saienduri (Done: 10/17)| Install 30TB storage on SharkMi300X, setup one more 8x air-cooled MI300 machine (SharkMi300X-3) with 30TB | Setup one more 8X MI300 liquid cooled machine (SharkMi300X-4) with 60TB, add 30 TB to each of SharkMi300X and SharkMi300X-3
-| Sharktank Modeling | |
-| Sharding | |
+| Machine and Storage          | two 8x MI300x SPX mode ensured working with how to use info added to [Nod AI Lab](https://confluence.amd.com/display/ENGIT/Nod.AI+Lab) @saienduri (Done: 10/17)| Install 30TB storage on SharkMi300X, setup one more 8x air-cooled MI300 machine (SharkMi300X-3) with 30TB | Setup one more 8X MI300 air-cooled machine (SharkMi300X-4) with 60TB, add 30 TB to each of SharkMi300X and SharkMi300X-3
+| Sharktank Modeling | cpu-verified llama3.1 8B FP8 MLIR available @dan garvey |
+| Sharding | 8 CPU core sharded llama3.1 FP16 numerically verified @boian |
 | IREE compilation | |
 | IREE Inference Numerics | |
 | Shortfin Serving | |
 | IREE and Serving Inference Performance | |
-| Test Automation | llama3.1 8B benchamrk pytest in sharktank CI @aviator19941 |
+| Test Automation | llama3.1 8B FP16 IREE compiled perf test in sharktank CI @aviator19941, llama3.1 8B FP16 IREE compiled numerics tested using perlexity @archana | llama3.1 8B FP8 IREE compiled perf test in sharktank CI @aviator19941, llama3.1 8B FP8 IREE compiled numerics tested using perlexity @archana, 8 CPU core sharded llama3.1 FP16 numeric test added @boian
+| Performance Profiling, (numerics) llama3.1 8B FP8 IREE compiled tested using perlexity @archana | |
 | Report dashboard| Show currently runnning llama3.1 component and full model test reports on a page @saienduri |
 
 # AMD GPU Machines
 [MI300](https://confluence.amd.com/display/ENGIT/Nod.AI+Lab#Nod.AILab-MI300NodAIMachines)
+
+# Test Reports
+TBD: Sai please put link to nightly tests that test any of component or full model of llama3
 
 # Caveats
 - Do not use CPX mode for MI300 as memory is 1/8th and you will run out of resources
