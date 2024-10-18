@@ -8,22 +8,23 @@ This page is project tracker to get halo models like llama3, grok1 etc. working 
 - Use llama3.1 8B to develop and test
 
 # Glossary
-TPn: Tensor Parallel using n GPUs where a large tensor is sharded across multiple GPUs using sharktank 
+TPn: Tensor Parallel using n GPUs where a large tensor is sharded across multiple GPUs using sharktank and scatter/gather to/from GPUs is done in single MLIR
 
 
 # Schedule
 |Item                          | 10/18/24      | 10/25/24       | 11/1/24       | 11/8/24      | 11/15/24     |
 |------------------------------|---------------|----------------|---------------|--------------|--------------|
 | Machine and Storage          | two 8x MI300x SPX mode ensured working with how to use info added to [Nod AI Lab](https://confluence.amd.com/display/ENGIT/Nod.AI+Lab) @saienduri (Done: 10/17)| Install 30TB storage on SharkMi300X, setup one more 8x air-cooled MI300 machine (SharkMi300X-3) with 30TB | Setup one more 8X MI300 air-cooled machine (SharkMi300X-4) with 60TB, add 30 TB to each of SharkMi300X and SharkMi300X-3
-| Sharktank Modeling | cpu-verified llama3.1 8B FP8 MLIR available @dan garvey |
-| Sharding | 8 CPU core sharded llama3.1 FP16 numerically verified @boian |
-| IREE compilation | | llama3.1 8B Fp16 attention ahead with dynamic shape compiling @mahesh |
-| IREE Inference Numerics |llama3.1 8B Fp16 iree compiled verified using perplexity @archana | |
+| Sharktank Modeling | IREE-compilable llama3.1 8B FP8 MLIR (Done:10/17) @dan garvey | verify numerics using quant-dequant on cpu vs run on MI300 and get MI300 Tracy profile of llama3.1 8B FP8, get 70B and 405B FP8 MLIR and verify 70B @dan, wire up perlexity flow to run vmfb @archana | Re-enerate MLIR without decomposition of SDPA for 8B, 70B, 405B for FP16 @kyle/@dan
+| Sharding | 8 CPU core sharded llama3.1 FP16 numerically verified @boian/@rob | 8 FPGA core sharding for llama3.1 FP16 and FP8 compiling for MI300 @boian/@rob | 8 FPGA core sharding for llama3.1 FP16 and FP8 numerically verified for MI300 @boian/@rob | 
+| IREE compilation | | llama3.1 8B Fp16 attention ahead with dynamic shape compiling @mahesh, Maximizing loads perf opt @stanley |
+| IREE Inference Numerics |llama3.1 8B Fp16 iree compiled verified using perplexity @archana |llama3.1 8B FP8 iree compiled verified using perplexity @archana |
 | Shortfin Serving | |llama3.1 8B Fp16 iree compiled working using shortfin @xida |
-| IREE and Serving Inference Performance | | llama3.1 8B Fp16 iree compiled working using shortfin perf numbers @avi
+| With Serving Inference Performance | | llama3.1 8B Fp16 iree compiled working using shortfin perf numbers @avi | performance tuning for sharding @boin/@rob
 | Test Automation | llama3.1 8B FP16 prefill attnhead, decode atttnhead, full model IREE compiled perf test in sharktank CI @aviator19941, llama3.1 8B FP16 IREE compiled numerics tested using perlexity @archana | llama3.1 8B FP8 prefill attnhead, decode atttnhead, full model IREE compiled perf test in sharktank CI @aviator19941, llama3.1 8B FP8 IREE compiled numerics tested using perlexity @archana, 8 CPU core sharded llama3.1 FP16 numeric test added @boian
 | Performance Profiling| Tracy profile for llama3.1 8B FP16 @kyle (Done) | |
 | Report dashboard| |  Show currently runnning all perf and numeric llama3.1 component and full model test reports on a page @saienduri |
+| Release Packaging/testing | | Have a test release with 8B FP16 @chris | test release with 8B FP8 @chris
 
 # AMD GPU Machines
 [MI300](https://confluence.amd.com/display/ENGIT/Nod.AI+Lab#Nod.AILab-MI300NodAIMachines)
