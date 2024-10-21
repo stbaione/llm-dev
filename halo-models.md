@@ -27,6 +27,18 @@ TPn: Tensor Parallel using n GPUs where a large tensor is sharded across multipl
 | Report dashboard| |  Show currently runnning all perf and numeric llama3.1 component and full model test reports on a page @saienduri |
 | Release Packaging/testing | | Have a test release with 8B FP16 @chris | test release with 8B FP8 @chris
 
+# Numerics 
+
+(MI300X GPU, SPX Mode)
+|Item                                      | Generate MLIR | Compile to vmfb | IREE invocation | IREE numeric | Serving numeric |
+|------------------------------------------|---------------|-----------------|-----------------|--------------|-----------------|
+| llama3.1 8B FP16 w/ decomposed SDPA      |prefill:1746 <br>decode:71.8   |
+| llama3.1 8B FP8 w/ decomposed SDPA       |   |
+| llama3.1 8B FP16 w/ non-decomposed SDPA  |   |
+| llama3.1 8B FP8 w/ non-decomposed SDPA   |   |
+| llama3.1 70B FP8 w/ non-decomposed SDPA  |   |
+| llama3.1 405B FP8 w/ non-decomposed SDPA |   |
+
 # Benchmark 
 
 (MI300X GPU, SPX Mode, Time in ms)
