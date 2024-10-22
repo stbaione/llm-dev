@@ -57,6 +57,10 @@ TPn: Tensor Parallel using n GPUs where a large tensor is sharded across multipl
 | llama3.1-70B-FP8  |   |
 | llama3.1-405B-FP8 |   |
 
+# Issues
+| category | issue link | assigned to | status |
+|---|---|---|---|
+|iree codegen | [18864](https://github.com/iree-org/iree/issues/18864)| unassigned | OOM for 70B |
 
 # AMD GPU Machines
 [MI300](https://confluence.amd.com/display/ENGIT/Nod.AI+Lab#Nod.AILab-MI300NodAIMachines)
