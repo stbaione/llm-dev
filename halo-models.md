@@ -27,7 +27,7 @@ TPn: Tensor Parallel using n GPUs where a large tensor is sharded across multipl
 | Report dashboard| |  Show currently runnning all perf and numeric llama3.1 component and full model test reports on a page @saienduri |
 | Release Packaging/testing | | Have a test release with 8B FP16 @chris | test release with 8B FP8 @chris
 
-# Numerics 
+# Status-Numerics 
 
 (MI300X GPU, SPX Mode)
 |Item                                      | Generate MLIR | Compile to vmfb | IREE invocation | IREE numeric | Serving numeric |
@@ -45,7 +45,7 @@ TPn: Tensor Parallel using n GPUs where a large tensor is sharded across multipl
 | llama3.1-70B-FP8  |   |
 | llama3.1-405B-FP8 |   |
 
-# Benchmark 
+# Status-Benchmark 
 
 (MI300X GPU, SPX Mode, Time in ms)
 |Item                                      | 10/25/24 | 11/1/24 | 11/8/24 | 11/15/24 | Target(vLLM-PyTorch)|
