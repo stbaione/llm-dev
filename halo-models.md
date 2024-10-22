@@ -34,7 +34,7 @@ TPn: Tensor Parallel using n GPUs where a large tensor is sharded across multipl
 |------------------------------------------|---------------|-----------------|-----------------|--------------|-----------------|
 | llama3.1-8B-FP16-decomposed      |PASS [TP1 mlir](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_8b/llama8b_f16.mlir) [gguf](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_8b/llama8b_f16.gguf)  |
 | llama3.1-70B-FP16-decomposed      |PASS [TP1 mlir](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_70b/llama70b_f16.mlir) [gguf](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_70b/llama70b_f16.gguf) |
-| llama3.1-405B-FP16-decomposed  |   |
+| llama3.1-405B-FP16-decomposed  |PASS [TP1 mlir](https://sharkpublic.blob.core.windows.net/sharkpublic/halo-models/llm-dev/llama3_405b/llama3.1_405b_fp16_TP1.mlir) [gguf](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_405b/llama405b_fp16.gguf)  |
 | llama3.1-8B-FP8-decomposed   |PASS [TP1 mlir](https://sharkpublic.blob.core.windows.net/sharkpublic/dan/native_fp8_e4m3fnuz_llama3_8b.mlir) [irpa](https://sharkpublic.blob.core.windows.net/sharkpublic/dan/native_fp8_e4m3fnuz_llama3_8b.irpa) |
 | llama3.1-70B-FP8-decomposed  |PASS [TP1 mlir](https://sharkpublic.blob.core.windows.net/sharkpublic/dan/native_fp8_e4m3fnuz_llama3_70b.mlir) [irpa](https://sharkpublic.blob.core.windows.net/sharkpublic/dan/native_fp8_e4m3fnuz_llama3_8_70b.irpa) |
 | llama3.1-405B-FP8-decomposed |   |
@@ -107,7 +107,7 @@ Export/Compile LLaMa | kyle | blocked on `torch.aten.complex` | rob is authoring
 LLaMa 8 prefill comparison | rob | layerwise comparison for prefill is normal | handing off tooling to Avi
 LLaMa 8 decode comparison | avi | still investigating cause of numeric issue | reuse rob's tooling to investigate
 FP8 quantized model | dan | finishing results from quark | following up with Giuseppe on new `fp8 quantization
-Model evaluation tooling | archana | working on perplexity script | update on progress / blockers
+Model evaluation tooling | archana | Perplexity CI nightly running in eager mode | working on getting perplexity with vmfb
 
 # Artifacts
 
