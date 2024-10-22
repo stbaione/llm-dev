@@ -41,9 +41,9 @@ TPn: Tensor Parallel using n GPUs where a large tensor is sharded across multipl
 | llama3.1-8B-FP16      |PASS [mlir](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_8b/8b_f16_nondecomposed.mlir)   |FAIL dyn dim
 | llama3.1-70B-FP16      |PASS [mlir](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_70b/70b_f16_nondecomposed.mlir)   |FAIL dyn dim
 | llama3.1-405B-FP16  |   |
-| llama3.1-8B-FP8   |   |
-| llama3.1-70B-FP8  |   |
-| llama3.1-405B-FP8 |   |
+| llama3.1-8B-FP8   |FAIL qkv must have same data type   |
+| llama3.1-70B-FP8  |FAIL qkv must have same data type   |
+| llama3.1-405B-FP8 |FAIL qkv must have same data type   |
 
 # Status-Benchmark 
 
