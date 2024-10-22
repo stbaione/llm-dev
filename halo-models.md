@@ -158,6 +158,10 @@ grok-1 | | |
 iree-compile --iree-hal-target-backends=rocm --iree-hip-target=gfx942 <mlir file> -o <vmfb file>
 ```
 
+## Evaluation tests
+### Perplexity
+Follow the steps [here](https://github.com/nod-ai/SHARK-Platform/blob/main/sharktank/sharktank/evaluate/README.md)
+
 ## Accessing sharkblobs on Azure:
 In browser, click on [sharkblobs](https://portal.azure.com/#@amdcloud.onmicrosoft.com/resource/subscriptions/8c190d1b-eb91-48d5-bec5-3e7cb7412e6c/resourceGroups/pdue-nod-ai-rg/providers/Microsoft.Storage/storageAccounts/sharkblobs/storagebrowser) , then click on "Blob-containers" and the click on "halo-models"
 
