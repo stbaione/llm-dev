@@ -61,6 +61,7 @@ TPn: Tensor Parallel using n GPUs where a large tensor is sharded across multipl
 | category | issue link | assigned to | status |
 |---|---|---|---|
 |iree codegen | [18864](https://github.com/iree-org/iree/issues/18864)| unassigned | OOM for 70B |
+|quark quantization | [QUARK-71](https://jira.xilinx.com/browse/QUARK-71) | unassigned | FP8 matmul should be used in attention|
 
 # AMD GPU Machines
 [MI300](https://confluence.amd.com/display/ENGIT/Nod.AI+Lab#Nod.AILab-MI300NodAIMachines)
