@@ -32,24 +32,31 @@ TPn: Tensor Parallel using n GPUs where a large tensor is sharded across multipl
 (MI300X GPU, SPX Mode)
 |Item                                      | Generate MLIR | Compile to vmfb | IREE invocation | IREE numeric | Serving numeric |
 |------------------------------------------|---------------|-----------------|-----------------|--------------|-----------------|
-| llama3.1 8B FP16 w/ decomposed SDPA      |prefill:1746 <br>decode:71.8   |
-| llama3.1 8B FP8 w/ decomposed SDPA       |   |
-| llama3.1 8B FP16 w/ non-decomposed SDPA  |   |
-| llama3.1 8B FP8 w/ non-decomposed SDPA   |   |
-| llama3.1 70B FP8 w/ non-decomposed SDPA  |   |
-| llama3.1 405B FP8 w/ non-decomposed SDPA |   |
+| llama3.1-8B-FP16-decomposed      |PASS [TP1 mlir](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_8b/llama8b_f16.mlir) [gguf](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_8b/llama8b_f16.gguf)  |
+| llama3.1-70B-FP16-decomposed      |PASS [TP1 mlir](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_70b/llama70b_f16.mlir) [gguf](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_70b/llama70b_f16.gguf) |
+| llama3.1-405B-FP16-decomposed  |   |
+| llama3.1-8B-FP8-decomposed   |PASS [TP1 mlir](https://sharkpublic.blob.core.windows.net/sharkpublic/dan/native_fp8_e4m3fnuz_llama3_8b.mlir) [irpa](https://sharkpublic.blob.core.windows.net/sharkpublic/dan/native_fp8_e4m3fnuz_llama3_8b.irpa) |
+| llama3.1-70B-FP8-decomposed  |PASS [TP1 mlir](https://sharkpublic.blob.core.windows.net/sharkpublic/dan/native_fp8_e4m3fnuz_llama3_70b.mlir) [irpa](https://sharkpublic.blob.core.windows.net/sharkpublic/dan/native_fp8_e4m3fnuz_llama3_8_70b.irpa) |
+| llama3.1-405B-FP8-decomposed |   |
+| llama3.1-8B-FP16      |   |
+| llama3.1-70B-FP16      |   |
+| llama3.1-405B-FP16  |   |
+| llama3.1-8B-FP8   |   |
+| llama3.1-70B-FP8  |   |
+| llama3.1-405B-FP8 |   |
 
 # Benchmark 
 
 (MI300X GPU, SPX Mode, Time in ms)
-|Item                                      | 10/18/24 | 10/25/24 | 11/1/24 | 11/8/24 | 11/15/24 | Target(vLLM-PyTorch)|
-|------------------------------------------|----------|----------|---------|---------|----------|---------------------|
-| llama3.1 8B FP16 w/ decomposed SDPA      |prefill:1746 <br>decode:71.8   |
-| llama3.1 8B FP8 w/ decomposed SDPA       |   |
-| llama3.1 8B FP16 w/ non-decomposed SDPA  |   |
-| llama3.1 8B FP8 w/ non-decomposed SDPA   |   |
-| llama3.1 70B FP8 w/ non-decomposed SDPA  |   |
-| llama3.1 405B FP8 w/ non-decomposed SDPA |   |
+|Item                                      | 10/25/24 | 11/1/24 | 11/8/24 | 11/15/24 | Target(vLLM-PyTorch)|
+|------------------------------------------|----------|---------|---------|----------|---------------------|
+| llama3.1-8B-FP16      |   |
+| llama3.1-70B-FP16      |   |
+| llama3.1-405B-FP16  |   |
+| llama3.1-8B-FP8   |   |
+| llama3.1-70B-FP8  |   |
+| llama3.1-405B-FP8 |   |
+
 
 # AMD GPU Machines
 [MI300](https://confluence.amd.com/display/ENGIT/Nod.AI+Lab#Nod.AILab-MI300NodAIMachines)
