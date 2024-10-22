@@ -122,7 +122,8 @@ Model evaluation tooling | archana | Perplexity CI nightly running in eager mode
 
 Note: If a link to Azure sharkblob below gives you an error, either use az cli to download (see section Accessing sharkblobs on Azure) or click on [sharkblobs](https://portal.azure.com/#@amdcloud.onmicrosoft.com/resource/subscriptions/8c190d1b-eb91-48d5-bec5-3e7cb7412e6c/resourceGroups/pdue-nod-ai-rg/providers/Microsoft.Storage/storageAccounts/sharkblobs/storagebrowser) , then click on "Blob containers" and then navigate to the file manually and download it. 
 
-## TP1
+## TP1 
+(Note: Update Schedule-Numerics table for llama3.1 artifacts instead of this table (10/20/2024 onwards))
 Models           |     FP16        |   FP8           |     Q4_1         |    Q4_K       |    Attention IRs
 :--------------: | :-------------: |:----------------:|:---------------:|:-------------:|:------------------:
 llama2-7b | | [irpa](https://sharkblobs.blob.core.windows.net/dan/qdq_full_transpose.irpa) [mlir](https://sharkblobs.blob.core.windows.net/dan/batch_llama_v1.mlir) | | | [Attention IRs](https://github.com/nod-ai/llm-dev/tree/main/models/llama_attention_irs)
