@@ -69,7 +69,8 @@ TPn: Tensor Parallel using n GPUs where a large tensor is sharded across multipl
 # Test Reports
 TBD: Sai please put link to nightly tests that test any of component or full model of llama3
 
-# Status
+# Status (Old)
+(Note: Do not update this one)
 |Models | compile | inference (SPX mode) | tracy |
 |---|---|---|---|
 |llama3.1-8b-FP16| PASS | prefill (1746 ms), decode (71.8 ms), [commands](https://gist.github.com/aviator19941/f10b5b7a7c3975de4363450b4d7ec68f) | [prefill](https://sharkpublic.blob.core.windows.net/sharkpublic/avi/llama8b_f16_prefill.tracy) [decode](https://sharkpublic.blob.core.windows.net/sharkpublic/avi/llama8b_f16_decode.tracy) |
