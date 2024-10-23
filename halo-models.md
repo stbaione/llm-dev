@@ -17,7 +17,7 @@ TPn: Tensor Parallel using n GPUs where a large tensor is sharded across multipl
 |------------------------------|---------------|----------------|---------------|--------------|--------------|
 | Machine and Storage          | two 8x MI300x SPX mode ensured working with how to use info added to [Nod AI Lab](https://confluence.amd.com/display/ENGIT/Nod.AI+Lab) @saienduri <br>(**Done:10/17**)|-Install 60TB storage on SharkMi300X **(Done:10/21)** <br>-setup one more 8x air-cooled MI300 machine (SharkMi300X-3) with 30TB added @saienduri |-Setup one more 8X MI300 air-cooled machine (SharkMi300X-4) with 60TB @saienduri <br>-Add 30 TB to each of SharkMi300X and SharkMi300X-3 @saienduri
 | Sharktank Modeling | IREE-compilable 8B FP8 MLIR @dan garvey <br>(**Done:10/17**)| -verify numerics using quant-dequant on cpu vs run on MI300 for 8B FP8 @dan <br>-Get 70B and 405B FP8 MLIR and verify(CPU vs MI300) numerics for 70B @dan, <br>-Wire up Perlexity flow to run vmfb using iree-run-module @archana, <br>-Debug 70B running OOM on 1 MI300 @kyle <br>-Quantized sharding support @Ian | Re-enerate and Verify MLIR without decomposition of SDPA for 8B, 70B, 405B for FP16 @kyle
-| Sharding | 8 CPU core sharded FP16 numerically verified @boian ETA:10/23 | 8 GPU sharding for FP16 and FP8 compiling for MI300 @rob/@Ian ETA: 10/23 | 8 GPU sharding for FP16 and FP8 numerics verified for MI300 @boian/@rob | 
+| Sharding | 8 CPU core sharded FP16 numerically verified @boian. compilation [issue](https://github.com/iree-org/iree/issues/18878) ETA:>10/24 | 8 GPU sharding for FP16 and FP8 compiling for MI300 @rob/@Ian ETA: 10/23 | 8 GPU sharding for FP16 and FP8 numerics verified for MI300 @boian/@rob | 
 | IREE codegeneration | | 8B FP16 attention ahead with dynamic shape generating valid vmfb @mahesh, FP8 Attention (use Intrinsic for FP8 effectively) @stanley | Paged Attention @kunwar/@manupa | Perf Tuning (all)
 | IREE Inference Numerics |8B FP16 iree-compiled vmfb verified using Perplexity @archana |FP8 iree-compiled verified using Perplexity @archana |
 | Inference Profiling| Tracy profile 8B FP16 w/ decoposition @kyle **(Done:10/17)** |Tracy profile for 8B FP8 w/ and w/o decomposition @kyle, <br>- Tracy profile 405B with 3 attention blocks w/ decomposition @Avi |
@@ -44,6 +44,7 @@ TPn: Tensor Parallel using n GPUs where a large tensor is sharded across multipl
 | llama3.1-8B-FP8   |FAIL qkv must have same data type   |
 | llama3.1-70B-FP8  |FAIL qkv must have same data type   |
 | llama3.1-405B-FP8 |FAIL qkv must have same data type   |
+| llama-toy-size-FP32-TP2-CPU | PASSES (for model see comilation issue) | FAIL ([issue](https://github.com/iree-org/iree/issues/18878)) |
 
 # Status-Benchmark 
 
