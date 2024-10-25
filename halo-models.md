@@ -115,6 +115,10 @@ az storage blob download --account-name sharkpublic --container-name sharkpublic
 
 Follow the steps [here](https://gist.github.com/stbaione/be38bfb214d990a4b765804223d6b948).
 
+## Setup SGLang With Shortfin
+
+Follow the steps [here](https://gist.github.com/stbaione/2843eced1b8c1042127bec3ca8774d9e)
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Archive
 ## Status (Old)
