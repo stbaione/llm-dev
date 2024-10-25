@@ -32,6 +32,7 @@ TPn: Tensor Parallel using n GPUs where a large tensor is sharded across multipl
 |Item                                      | Generate MLIR | Compile to vmfb | IREE invocation | IREE numeric | Serving numeric |
 |------------------------------------------|---------------|-----------------|-----------------|--------------|-----------------|
 | llama3.1-8B-FP16-decomposed      |PASS [TP1 mlir](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_8b/llama8b_f16.mlir) [gguf](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_8b/llama8b_f16.gguf) [irpa](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_8b/8b_f16.irpa)  |PASS [vmfb](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_8b/8b_f16.vmfb) | PASS
+| llama3.1-8B-FP16-decomposed-TP8 | PASS (MLIR coming shortly) | PASS |
 | llama3.1-70B-FP16-decomposed      |PASS [TP1 mlir](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_70b/llama70b_f16.mlir) [gguf](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_70b/llama70b_f16.gguf) [irpa](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_70b/70b_f16.irpa) |PASS [vmfb](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_70b/70b_f16.vmfb) | FAIL [OOM](https://github.com/iree-org/iree/issues/18864) |
 | llama3.1-405B-FP16-decomposed  |PASS [TP1 mlir](https://sharkpublic.blob.core.windows.net/sharkpublic/halo-models/llm-dev/llama3_405b/llama3.1_405b_fp16_TP1.mlir) [gguf](https://sharkblobs.blob.core.windows.net/halo-models/llm-dev/llama3_405b/llama405b_fp16.gguf)  |
 | llama3.1-8B-FP8-decomposed   |PASS [TP1 mlir](https://sharkpublic.blob.core.windows.net/sharkpublic/dan/native_fp8_e4m3fnuz_llama3_8b.mlir) [irpa](https://sharkpublic.blob.core.windows.net/sharkpublic/dan/native_fp8_e4m3fnuz_llama3_8b.irpa) | Fails in iree, [patch](https://github.com/iree-org/iree/pull/18890)
@@ -43,7 +44,7 @@ TPn: Tensor Parallel using n GPUs where a large tensor is sharded across multipl
 | llama3.1-8B-FP8   |FAIL qkv must have same data type   |
 | llama3.1-70B-FP8  |FAIL qkv must have same data type   |
 | llama3.1-405B-FP8 |FAIL qkv must have same data type   |
-| llama-toy-size-FP32-TP2-CPU | PASSES (for model see comilation issue) | FAIL ([issue](https://github.com/iree-org/iree/issues/18878)) |
+| llama-toy-size-FP32-TP2-CPU | PASS | PASS |
 
 # Status-Benchmark 
 
