@@ -72,6 +72,12 @@ TBD: Sai please put link to nightly tests that test any of component or full mod
 
 ## MLIR generation and Compilation
 [Quantization](https://github.com/nod-ai/llm-dev/blob/main/Quantization.md)
+
+export fp8:
+```
+python -m sharktank.examples.export_paged_llm_v1 --irpa-file=native_fp8_e4m3fnuz_llama3_8b.irpa --output-mlir native_fp8_e4m3fnuz_llama3_8b.mlir --no-fake-quant --bs=1 --attention-kernel=torch_sdpa
+```
+
 ```
 iree-compile --iree-hal-target-backends=rocm --iree-hip-target=gfx942 <mlir file> -o <vmfb file>
 ```
